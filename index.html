@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlumbPro Exam — Pass Your Plumbing License Exam</title>
+<meta name="description" content="1,440+ IPC practice questions, realistic exam simulations, and smart study tools. Pass your plumbing license exam on the first try.">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0E0E12;
+    --surface: #1A1A1E;
+    --card: #252529;
+    --border: #35353A;
+    --orange: #F2720C;
+    --orange-glow: rgba(242, 114, 12, 0.15);
+    --green: #2ECC71;
+    --text1: #F5F5F5;
+    --text2: #9A9AA0;
+    --text3: #5E5E66;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text1);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(14, 14, 18, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .nav-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text1);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange);
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 700 !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px var(--orange-glow);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 160px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--orange-glow);
+    border: 1px solid rgba(242, 114, 12, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--orange);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero p {
+    font-size: 18px;
+    color: var(--text2);
+    max-width: 560px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--orange-glow);
+  }
+  .btn-secondary {
+    background: var(--card);
+    color: var(--text1);
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--orange); }
+
+  /* ─── SCREENSHOTS ─── */
+  .screenshots {
+    padding: 40px 24px 80px;
+    overflow: hidden;
+  }
+  .screenshots-track {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .screenshots-track::-webkit-scrollbar { display: none; }
+  .screenshot-frame {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+  }
+  .screenshot-frame:hover { transform: translateY(-8px); }
+  .screenshot-frame img {
+    width: 100%;
+    display: block;
+  }
+
+  /* ─── SECTION ─── */
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 17px;
+    color: var(--text2);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  /* ─── FEATURES ─── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .feature-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+  }
+  .feature-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .feature-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .feature-card p {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* ─── STATS ─── */
+  .stats-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 24px;
+  }
+  .stats-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--orange);
+  }
+  .stat-label {
+    font-size: 14px;
+    color: var(--text2);
+    margin-top: 4px;
+  }
+
+  /* ─── PRICING ─── */
+  .pricing-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .price-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    width: 320px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .price-card:hover {
+    transform: translateY(-4px);
+  }
+  .price-card.popular {
+    border-color: var(--orange);
+    box-shadow: 0 0 40px var(--orange-glow);
+  }
+  .popular-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: #fff;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .price-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .price-desc {
+    font-size: 14px;
+    color: var(--text2);
+    margin-bottom: 20px;
+  }
+  .price-amount {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text1);
+  }
+  .price-period {
+    font-size: 16px;
+    color: var(--text3);
+    font-weight: 500;
+  }
+  .price-features {
+    list-style: none;
+    margin: 24px 0;
+  }
+  .price-features li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .price-features li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 700;
+  }
+  .price-btn {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .price-btn:hover { transform: translateY(-1px); }
+  .price-btn-primary {
+    background: var(--orange);
+    color: #fff;
+  }
+  .price-btn-secondary {
+    background: var(--card);
+    color: var(--text1);
+    border: 1px solid var(--border);
+  }
+
+  /* ─── TOPICS ─── */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .topic-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .topic-chip:hover { border-color: var(--orange); }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    text-align: center;
+    padding: 100px 24px;
+    position: relative;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-section h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .cta-section p {
+    color: var(--text2);
+    font-size: 17px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .footer-links a {
+    color: var(--text3);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text2); }
+  .footer-copy {
+    color: var(--text3);
+    font-size: 13px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .stats-inner { flex-direction: column; align-items: center; }
+    .screenshot-frame { width: 180px; }
+    .price-card { width: 100%; max-width: 360px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="images/logo.png" alt="PlumbPro" class="nav-logo">
+      <span class="nav-name">PlumbPro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#topics">Topics</a></li>
+      <li><a href="#" class="nav-cta">Download</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🔧 #1 IPC Exam Prep App</div>
+  <h1>Pass Your <span>Plumbing Exam</span> on the First Try</h1>
+  <p>1,440+ practice questions, realistic exam simulations, and the complete IPC code reference — all in one app.</p>
+  <div class="hero-buttons">
+    <a href="#" class="btn-primary">Download Free →</a>
+    <a href="#features" class="btn-secondary">See Features</a>
+  </div>
+</div>
+
+<!-- SCREENSHOTS -->
+<div class="screenshots">
+  <div class="screenshots-track">
+    <div class="screenshot-frame"><img src="images/ss1.png" alt="Home Screen"></div>
+    <div class="screenshot-frame"><img src="images/ss2.png" alt="Practice Mode"></div>
+    <div class="screenshot-frame"><img src="images/ss3.png" alt="Mock Exam"></div>
+    <div class="screenshot-frame"><img src="images/ss4.png" alt="Exam Results"></div>
+    <div class="screenshot-frame"><img src="images/ss5.png" alt="Progress"></div>
+    <div class="screenshot-frame"><img src="images/ss6.png" alt="Code Reference"></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">1,440+</div>
+      <div class="stat-label">Practice Questions</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">13</div>
+      <div class="stat-label">Exam Topics</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">293</div>
+      <div class="stat-label">Code Sections</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Questions with Explanations</div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-label">Features</div>
+  <div class="section-title">Everything You Need to Pass</div>
+  <div class="section-desc">Built by plumbers, for plumbers. Every feature designed to get you exam-ready as efficiently as possible.</div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📚</div>
+      <h3>1,440+ Practice Questions</h3>
+      <p>Covering all 13 IPC exam topics with detailed explanations. Every question includes a code reference so you learn the "why" behind every answer.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📝</div>
+      <h3>Realistic Exam Simulations</h3>
+      <p>Journeyman (100 questions, 4 hours) and Master (110 questions, 4 hours) exams weighted by topic — just like the real thing.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💡</div>
+      <h3>Detailed Explanations</h3>
+      <p>Don't just memorize — understand. Every question tells you why the correct answer is right and why common wrong answers are wrong.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📖</div>
+      <h3>Complete IPC Code Reference</h3>
+      <p>293 searchable code sections from the IPC, IFGC, and NFPA 99. Tap any code reference in a question to jump to the relevant section.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3>Smart Study Tools</h3>
+      <p>Weak area practice, spaced repetition, question search, flashcards, and bookmarks — all working together to maximize your study time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Progress Tracking</h3>
+      <p>Exam readiness score, topic mastery tracking, daily streaks, pass probability prediction, and 20 achievement badges.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section id="topics">
+  <div class="section-label">Comprehensive Coverage</div>
+  <div class="section-title">All 13 IPC Exam Topics</div>
+  <div class="section-desc">Every topic on the Journeyman and Master plumber exams, based on the International Plumbing Code.</div>
+
+  <div class="topics-grid">
+    <div class="topic-chip">🔧 Drainage Systems</div>
+    <div class="topic-chip">💨 Venting</div>
+    <div class="topic-chip">💧 Water Supply</div>
+    <div class="topic-chip">🚿 Fixtures & Faucets</div>
+    <div class="topic-chip">🔄 Backflow Prevention</div>
+    <div class="topic-chip">🔥 Water Heaters</div>
+    <div class="topic-chip">🔩 Piping Materials</div>
+    <div class="topic-chip">📋 Code Administration</div>
+    <div class="topic-chip">⛽ Gas Piping</div>
+    <div class="topic-chip">🧪 Indirect Waste</div>
+    <div class="topic-chip">🏥 Medical Gas</div>
+    <div class="topic-chip">⚡ Traps & Interceptors</div>
+    <div class="topic-chip">🌧️ Storm Drainage</div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-label">Pricing</div>
+  <div class="section-title">Start Free. Go Pro When You're Ready.</div>
+  <div class="section-desc">Get started with no commitment. Upgrade to Pro for full access to everything.</div>
+
+  <div class="pricing-cards">
+    <div class="price-card">
+      <div class="price-name">Free</div>
+      <div class="price-desc">Get started with no commitment</div>
+      <div class="price-amount">$0</div>
+      <ul class="price-features">
+        <li>All 13 exam topics</li>
+        <li>10 questions per topic</li>
+        <li>Quick Quiz mode</li>
+        <li>Full Code Reference</li>
+        <li>13 Study Guides</li>
+        <li>Progress tracking</li>
+      </ul>
+      <a href="#" class="price-btn price-btn-secondary">Download Free</a>
+    </div>
+
+    <div class="price-card popular">
+      <div class="popular-tag">BEST VALUE</div>
+      <div class="price-name">Pro Annual</div>
+      <div class="price-desc">Everything you need to pass</div>
+      <div><span class="price-amount">$59.99</span><span class="price-period">/year</span></div>
+      <ul class="price-features">
+        <li>All 1,440+ questions</li>
+        <li>Journeyman & Master exams</li>
+        <li>Detailed explanations</li>
+        <li>Weak area auto-practice</li>
+        <li>Question search</li>
+        <li>Unlimited flashcards</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="#" class="price-btn price-btn-primary">Start Pro Access</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-name">Pro Monthly</div>
+      <div class="price-desc">Full access, cancel anytime</div>
+      <div><span class="price-amount">$14.99</span><span class="price-period">/month</span></div>
+      <ul class="price-features">
+        <li>All 1,440+ questions</li>
+        <li>Journeyman & Master exams</li>
+        <li>Detailed explanations</li>
+        <li>Weak area auto-practice</li>
+        <li>Question search</li>
+        <li>Unlimited flashcards</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="#" class="price-btn price-btn-secondary">Start Pro Access</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Stop Guessing. <span style="color: var(--orange);">Know</span> You're Ready.</h2>
+  <p>Join plumbers across the country who are passing their exam with PlumbPro.</p>
+  <a href="#" class="btn-primary" style="position: relative;">Download PlumbPro Free →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 PlumbPro Prep. All rights reserved.</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="mailto:support@plumbproprep.com">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
