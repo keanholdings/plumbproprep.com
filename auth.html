@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlumbPro Exam</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: #0E0E12;
+    color: #F5F5F5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    max-width: 440px;
+    width: 100%;
+    background: #1A1A1E;
+    border: 1px solid #35353A;
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+  }
+  .icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  h1.green { color: #2ECC71; }
+  h1.orange { color: #F2720C; }
+  h1.white { color: #F5F5F5; }
+  p {
+    font-size: 15px;
+    color: #9A9AA0;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .steps {
+    background: #252529;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 32px;
+    border: 1px solid #35353A;
+  }
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+  }
+  .step:not(:last-child) {
+    border-bottom: 1px solid #35353A;
+  }
+  .step-num {
+    background: rgba(242, 114, 12, 0.15);
+    color: #F2720C;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-text {
+    font-size: 14px;
+    color: #C0C0C6;
+  }
+  .form-group {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #9A9AA0;
+    margin-bottom: 6px;
+  }
+  input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #252529;
+    border: 1px solid #35353A;
+    border-radius: 12px;
+    color: #F5F5F5;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus {
+    border-color: #F2720C;
+  }
+  .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 16px;
+    background: #F2720C;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(242, 114, 12, 0.2);
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  .error {
+    background: rgba(231, 76, 60, 0.1);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    color: #E74C3C;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  .password-req {
+    font-size: 12px;
+    color: #5E5E66;
+    margin-top: 6px;
+    text-align: left;
+  }
+  .section { display: none; }
+  .footer {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #5E5E66;
+  }
+  .footer a {
+    color: #F2720C;
+    text-decoration: none;
+  }
+  .loading {
+    color: #9A9AA0;
+    font-size: 16px;
+    padding: 40px 0;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="images/logo.png" alt="PlumbPro" class="logo">
+
+    <!-- Loading -->
+    <div class="section" id="loadingSection">
+      <div class="loading">Loading...</div>
+    </div>
+
+    <!-- Email Confirmed -->
+    <div class="section" id="confirmedSection">
+      <div class="icon">✅</div>
+      <h1 class="green">Email Verified!</h1>
+      <p>Your PlumbPro account is confirmed and ready to go.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Open the <strong>PlumbPro Exam</strong> app on your phone</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">Tap <strong>Log In</strong></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Enter your email and password</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">Start studying! 🔧</div>
+        </div>
+      </div>
+      <a href="/" class="btn">Back to PlumbPro</a>
+    </div>
+
+    <!-- Password Reset Form -->
+    <div class="section" id="resetSection">
+      <h1 class="white">Reset Your Password</h1>
+      <p>Enter your new password below.</p>
+      <div class="error" id="errorMsg"></div>
+      <div class="form-group">
+        <label>New Password</label>
+        <input type="password" id="password" placeholder="Enter new password" minlength="6">
+        <div class="password-req">Must be at least 6 characters</div>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm new password">
+      </div>
+      <button class="btn" id="submitBtn" onclick="resetPassword()">Update Password</button>
+    </div>
+
+    <!-- Password Reset Success -->
+    <div class="section" id="resetSuccessSection">
+      <div class="icon">✅</div>
+      <h1 class="green">Password Updated!</h1>
+      <p>Your password has been reset successfully. Open the PlumbPro app and log in with your new password.</p>
+      <a href="/" class="btn">Back to PlumbPro</a>
+    </div>
+
+    <!-- Error / Expired -->
+    <div class="section" id="errorSection">
+      <div class="icon">⚠️</div>
+      <h1 class="orange">Invalid or Expired Link</h1>
+      <p>This link has expired or is invalid. Please try again from the PlumbPro app.</p>
+      <a href="/" class="btn">Back to PlumbPro</a>
+    </div>
+
+    <div class="footer">
+      Need help? <a href="mailto:support@plumbproprep.com">support@plumbproprep.com</a>
+    </div>
+  </div>
+
+<script>
+  // Replace with your Supabase credentials
+  const SUPABASE_URL = 'https://rggiitwitggspcbzhuru.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJnZ2lpdHdpdGdnc3BjYnpodXJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwNDkxNTEsImV4cCI6MjA4NjYyNTE1MX0.5L_Jgqd1YavFi9yEQFB9nFCbpAdgkBXdGZwADCwO3Dg';
+
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  }
+
+  async function init() {
+    show('loadingSection');
+
+    // Parse the URL hash for token info
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const accessToken = params.get('access_token');
+    const type = params.get('type');
+
+    // Also check query params
+    const queryParams = new URLSearchParams(window.location.search);
+    const queryType = queryParams.get('type');
+    const token = queryParams.get('token');
+    const code = queryParams.get('code');
+
+    // Determine the flow type
+    const flowType = type || queryType || '';
+
+    if (flowType === 'signup' || flowType === 'email') {
+      // Email confirmation - just show success
+      show('confirmedSection');
+      return;
+    }
+
+    if (flowType === 'recovery') {
+      // Password reset flow
+      if (accessToken) {
+        // We have the token in the hash - set session
+        const refreshToken = params.get('refresh_token');
+        const { error } = await sb.auth.setSession({
+          access_token: accessToken,
+          refresh_token: refreshToken
+        });
+        if (error) {
+          show('errorSection');
+        } else {
+          show('resetSection');
+        }
+        return;
+      }
+    }
+
+    // Try exchanging code if present (PKCE flow)
+    if (code) {
+      try {
+        const { data, error } = await sb.auth.exchangeCodeForSession(code);
+        if (data?.session) {
+          // Check if this was a recovery
+          if (data.session.user?.recovery_sent_at || queryType === 'recovery') {
+            show('resetSection');
+          } else {
+            show('confirmedSection');
+          }
+          return;
+        }
+      } catch (e) {}
+    }
+
+    // If we got here with a hash containing tokens, try to get session
+    if (accessToken) {
+      show('confirmedSection');
+      return;
+    }
+
+    // No recognizable auth params - check if there's a type in the original URL
+    // This handles the Supabase redirect which puts params before the hash
+    if (window.location.href.includes('type=recovery')) {
+      // Wait for Supabase to process
+      const { data } = await sb.auth.getSession();
+      if (data?.session) {
+        show('resetSection');
+        return;
+      }
+    }
+
+    if (window.location.href.includes('type=signup') || window.location.href.includes('type=email')) {
+      show('confirmedSection');
+      return;
+    }
+
+    // Default - if no params at all, show confirmed (safest default)
+    if (!hash && !token && !code && !queryType) {
+      show('confirmedSection');
+    } else {
+      show('errorSection');
+    }
+  }
+
+  async function resetPassword() {
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const errorEl = document.getElementById('errorMsg');
+    const btn = document.getElementById('submitBtn');
+
+    errorEl.style.display = 'none';
+
+    if (password.length < 6) {
+      errorEl.textContent = 'Password must be at least 6 characters.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      errorEl.textContent = 'Passwords do not match.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Updating...';
+
+    const { error } = await sb.auth.updateUser({ password: password });
+
+    if (error) {
+      errorEl.textContent = error.message || 'Failed to update password. Please try again.';
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Update Password';
+    } else {
+      show('resetSuccessSection');
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && document.getElementById('resetSection').style.display === 'block') {
+      resetPassword();
+    }
+  });
+
+  init();
+</script>
+</body>
+</html>
