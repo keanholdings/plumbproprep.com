@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Verified — PlumbPro Exam</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: #0E0E12;
+    color: #F5F5F5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    max-width: 440px;
+    width: 100%;
+    background: #1A1A1E;
+    border: 1px solid #35353A;
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .icon {
+    font-size: 64px;
+    margin-bottom: 24px;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #2ECC71;
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 16px;
+    color: #9A9AA0;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .steps {
+    background: #252529;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 32px;
+    border: 1px solid #35353A;
+  }
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+  }
+  .step:not(:last-child) {
+    border-bottom: 1px solid #35353A;
+  }
+  .step-num {
+    background: rgba(242, 114, 12, 0.15);
+    color: #F2720C;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-text {
+    font-size: 14px;
+    color: #C0C0C6;
+  }
+  .btn {
+    display: inline-block;
+    background: #F2720C;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(242, 114, 12, 0.2);
+  }
+  .footer {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #5E5E66;
+  }
+  .footer a {
+    color: #F2720C;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="images/logo.png" alt="PlumbPro" class="logo">
+    <div class="icon">✅</div>
+    <h1>Email Verified!</h1>
+    <p>Your PlumbPro account is confirmed and ready to go.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Open the <strong>PlumbPro Exam</strong> app on your phone</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Tap <strong>Log In</strong></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Enter your email and password</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">Start studying! 🔧</div>
+      </div>
+    </div>
+
+    <a href="/" class="btn">Back to PlumbPro</a>
+
+    <div class="footer">
+      Need help? <a href="mailto:support@plumbproprep.com">support@plumbproprep.com</a>
+    </div>
+  </div>
+</body>
+</html>
