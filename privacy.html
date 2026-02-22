@@ -4,34 +4,193 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PlumbPro Exam - Privacy Policy</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; background: #1A1A1E; color: #E0E0E0; line-height: 1.7; }
-  .container { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
-  .logo { text-align: center; margin-bottom: 40px; }
-  .logo span { font-size: 40px; }
-  .logo h1 { font-size: 24px; color: #F5F5F5; margin-top: 8px; }
-  .logo p { color: #9A9AA0; font-size: 14px; }
-  h2 { font-size: 20px; color: #F2720C; margin: 32px 0 12px; font-weight: 700; }
-  h3 { font-size: 16px; color: #F5F5F5; margin: 20px 0 8px; font-weight: 600; }
-  p { margin-bottom: 12px; color: #C0C0C6; font-size: 15px; }
-  ul { margin: 8px 0 16px 24px; }
-  li { margin-bottom: 6px; color: #C0C0C6; font-size: 15px; }
-  a { color: #F2720C; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .date { text-align: center; color: #5E5E66; font-size: 13px; margin-bottom: 32px; }
-  .footer { text-align: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid #35353A; color: #5E5E66; font-size: 13px; }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: #0E0E12;
+    color: #F5F5F5;
+    line-height: 1.7;
+  }
+
+  /* Nav - same as index */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(14, 14, 18, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #35353A;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .nav-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: #F5F5F5;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: #9A9AA0;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #F2720C; }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+  }
+  .page-header {
+    margin-bottom: 48px;
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #F2720C;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .date {
+    color: #5E5E66;
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #F5F5F5;
+    margin: 40px 0 12px;
+    letter-spacing: -0.3px;
+  }
+  h3 {
+    font-size: 17px;
+    color: #F5F5F5;
+    margin: 24px 0 8px;
+    font-weight: 700;
+  }
+  p {
+    margin-bottom: 14px;
+    color: #9A9AA0;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  ul {
+    margin: 8px 0 16px 24px;
+  }
+  li {
+    margin-bottom: 6px;
+    color: #9A9AA0;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  a {
+    color: #F2720C;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  strong {
+    color: #C0C0C6;
+  }
+
+  /* Footer - same as index */
+  footer {
+    border-top: 1px solid #35353A;
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .footer-links a {
+    color: #5E5E66;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #9A9AA0; }
+  .footer-copy {
+    color: #5E5E66;
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .page-title { font-size: 28px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="logo">
-    <span>🔧</span>
-    <h1>PlumbPro Exam</h1>
-    <p>Privacy Policy</p>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="images/logo.png" alt="PlumbPro" class="nav-logo">
+      <span class="nav-name">PlumbPro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#topics">Topics</a></li>
+    </ul>
   </div>
-  <p class="date">Last updated: February 20, 2026</p>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <div class="section-label">Legal</div>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="date">Last updated: February 20, 2026</p>
+  </div>
 
   <h2>Overview</h2>
   <p>PlumbPro Exam ("PlumbPro", "we", "us", or "our") is a mobile application designed to help plumbing professionals prepare for their licensing exams. We are committed to protecting your privacy and being transparent about how we collect, use, and share your information.</p>
@@ -104,7 +263,7 @@
     <li><strong>Export</strong> — Request your data in a portable format</li>
     <li><strong>Opt out</strong> — Disable push notifications or study reminders at any time</li>
   </ul>
-  <p>To exercise any of these rights, contact us at <a href="/cdn-cgi/l/email-protection#1c6f696c6c736e685c6c7069717e6c6e736c6e796c327f7371"><span class="__cf_email__" data-cfemail="ed9e989d9d829f99ad9d8198808f9d9f829d9f889dc38e8280">[email&#160;protected]</span></a>.</p>
+  <p>To exercise any of these rights, contact us at <a href="mailto:support@plumbproprep.com">support@plumbproprep.com</a>.</p>
 
   <h2>Children's Privacy</h2>
   <p>PlumbPro is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If we learn that we have collected information from a child under 13, we will delete it promptly.</p>
@@ -116,4 +275,21 @@
   <p>If you have questions or concerns about this privacy policy or our data practices, please contact us at:</p>
   <p>
     <strong>PlumbPro Exam</strong><br>
-    Email: <a href="/cdn-cgi/l/email-protection#4e3d3b3e3e213c3a0e3e223b232c3e3c213e3c2b3e602d2123"><span class="__cf_email__
+    Email: <a href="mailto:support@plumbproprep.com">support@plumbproprep.com</a><br>
+    Website: <a href="https://plumbproprep.com">plumbproprep.com</a>
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 PlumbPro Prep. All rights reserved.</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="mailto:support@plumbproprep.com">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
