@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About PlumbPro Exam — Our Story</title>
+<meta name="description" content="PlumbPro Exam was born from a dad's mission to help his son pass the plumbing Journeyman exam. Learn how it grew into the go-to exam prep app for plumbers nationwide.">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0E0E12; --surface: #1A1A1E; --card: #252529; --border: #35353A;
+    --orange: #F2720C; --orange-glow: rgba(242, 114, 12, 0.15);
+    --green: #2ECC71; --text1: #F5F5F5; --text2: #9A9AA0; --text3: #5E5E66;
+  }
+  body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text1); line-height: 1.6; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(14, 14, 18, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo { width: 40px; height: 40px; border-radius: 10px; }
+  .nav-name { font-size: 20px; font-weight: 800; color: var(--text1); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: #fff !important; padding: 10px 20px; border-radius: 10px; font-weight: 700 !important; transition: transform 0.2s, box-shadow 0.2s; }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--orange-glow); }
+
+  /* HERO */
+  .about-hero {
+    padding: 140px 24px 80px; text-align: center; position: relative; overflow: hidden;
+  }
+  .about-hero::before {
+    content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 800px; border-radius: 50%;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%); pointer-events: none;
+  }
+  .section-label { font-size: 13px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .about-hero h1 {
+    font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.15;
+    letter-spacing: -1px; margin-bottom: 20px; position: relative;
+  }
+  .about-hero h1 span { color: var(--orange); }
+  .about-hero p {
+    font-size: 18px; color: var(--text2); max-width: 600px;
+    margin: 0 auto; line-height: 1.7; position: relative;
+  }
+
+  /* STORY */
+  .story { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+  .story p {
+    font-size: 17px; color: var(--text2); line-height: 1.8; margin-bottom: 24px;
+  }
+  .story p.highlight {
+    font-size: 22px; color: var(--text1); font-weight: 600; line-height: 1.5;
+    border-left: 3px solid var(--orange); padding-left: 20px; margin: 40px 0;
+  }
+  .story h2 {
+    font-size: 28px; font-weight: 800; color: var(--text1); margin: 48px 0 16px;
+    letter-spacing: -0.3px;
+  }
+
+  /* STATS */
+  .about-stats {
+    background: var(--surface); border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border); padding: 48px 24px; margin: 40px 0;
+  }
+  .about-stats-inner {
+    max-width: 800px; margin: 0 auto; display: flex;
+    justify-content: space-around; flex-wrap: wrap; gap: 32px;
+  }
+  .about-stat { text-align: center; }
+  .about-stat-num { font-size: 42px; font-weight: 800; color: var(--orange); }
+  .about-stat-label { font-size: 14px; color: var(--text2); margin-top: 4px; }
+
+  /* VALUES */
+  .values { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+  .values h2 {
+    font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 40px;
+  }
+  .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .value-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px; transition: border-color 0.3s;
+  }
+  .value-card:hover { border-color: var(--orange); }
+  .value-icon { font-size: 32px; margin-bottom: 14px; }
+  .value-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .value-card p { font-size: 14px; color: var(--text2); line-height: 1.6; }
+
+  /* CTA */
+  .about-cta {
+    text-align: center; padding: 80px 24px; position: relative;
+  }
+  .about-cta::before {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%); pointer-events: none;
+  }
+  .about-cta h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 16px; position: relative; }
+  .about-cta p { color: var(--text2); font-size: 17px; margin-bottom: 28px; position: relative; }
+  .btn-primary {
+    background: var(--orange); color: #fff; padding: 16px 32px; border-radius: 14px;
+    font-size: 17px; font-weight: 700; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--orange-glow); }
+  .app-store-badge { height: 54px; margin-top: 20px; transition: transform 0.2s; display: block; margin-left: auto; margin-right: auto; }
+  .app-store-badge:hover { transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { color: var(--text3); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text2); }
+  .footer-copy { color: var(--text3); font-size: 13px; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-stats-inner { flex-direction: column; align-items: center; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="images/logo.png" alt="PlumbPro" class="nav-logo">
+      <span class="nav-name">PlumbPro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="https://apps.apple.com/us/app/plumbpro-plumbing-exam-prep/id6759473027" class="nav-cta">Download Free</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="about-hero">
+  <div class="section-label">Our Story</div>
+  <h1>Built by a Dad.<br><span>For Every Plumber.</span></h1>
+  <p>PlumbPro started with a simple question: why isn't there a good plumbing exam prep app?</p>
+</div>
+
+<div class="story">
+  <p>My son is a plumber's apprentice. When he started preparing for his Journeyman licensing exam, I went looking for a solid study app — something with real IPC questions, detailed explanations, and a way to track progress.</p>
+
+  <p>I couldn't find one.</p>
+
+  <p>There were flashcard apps that barely scratched the surface. Study guides that hadn't been updated in years. Nothing built specifically for the IPC plumbing exam with the depth and quality that someone's career depends on.</p>
+
+  <p class="highlight">What started as a way to help my son has grown into something much bigger.</p>
+
+  <p>As I dug into the numbers, the need became clear. The plumbing industry is facing a critical shortage of licensed professionals. Over the next decade, tens of thousands of new plumbers will need to earn their licenses to replace retiring workers and meet growing demand. Every one of them has to pass an exam.</p>
+
+  <p>So I built PlumbPro Exam — not as a shortcut, but as a real study tool. Every question is based on the International Plumbing Code. Every answer includes a detailed explanation and a code reference. The mock exams simulate the real test conditions. The progress tracking tells you exactly where you're strong and where you need work.</p>
+
+  <h2>Why It Matters</h2>
+
+  <p>Plumbing isn't just a job — it's the infrastructure that keeps communities healthy and safe. Clean water, proper drainage, safe gas piping — all of it depends on skilled, licensed plumbers who know the code inside and out.</p>
+
+  <p>Every plumber who passes their exam with PlumbPro is one more professional making buildings safer and communities healthier. That's not a small thing.</p>
+
+  <h2>What's Next</h2>
+
+  <p>PlumbPro is just getting started. We're continuously adding questions, expanding to more states, and building new study tools based on user feedback. The goal is simple: be the best exam prep resource available for plumbing professionals — and help as many people as possible earn their license.</p>
+
+  <p>If you're studying for your plumbing exam, PlumbPro was built for you. And if you have feedback or ideas, I'd love to hear from you at <a href="mailto:support@plumbproprep.com" style="color: var(--orange); text-decoration: none;">support@plumbproprep.com</a>.</p>
+
+  <p style="color: var(--text3); margin-top: 40px; font-size: 15px;">— Ryan Kean, Founder<br>Kean Holdings LLC</p>
+</div>
+
+<div class="about-stats">
+  <div class="about-stats-inner">
+    <div class="about-stat"><div class="about-stat-num">1,440+</div><div class="about-stat-label">Practice Questions</div></div>
+    <div class="about-stat"><div class="about-stat-num">13</div><div class="about-stat-label">IPC Topics</div></div>
+    <div class="about-stat"><div class="about-stat-num">293</div><div class="about-stat-label">Code Sections</div></div>
+  </div>
+</div>
+
+<div class="values">
+  <h2>What We Believe</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">🎯</div>
+      <h3>Accuracy First</h3>
+      <p>Every question is based on the IPC and reviewed for accuracy. Your career depends on getting the right answers — so does our content.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">💡</div>
+      <h3>Understand, Don't Memorize</h3>
+      <p>Detailed explanations teach you why the answer is right, not just what it is. That knowledge sticks with you on the job, not just on the exam.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔧</div>
+      <h3>Built for the Trades</h3>
+      <p>Designed for people who work with their hands all day and study at night. Quick sessions, offline access, and no unnecessary complexity.</p>
+    </div>
+  </div>
+</div>
+
+<div class="about-cta">
+  <h2>Ready to <span style="color: var(--orange);">Pass Your Exam</span>?</h2>
+  <p>Download PlumbPro free and start studying today.</p>
+  <a href="https://apps.apple.com/us/app/plumbpro-plumbing-exam-prep/id6759473027" class="btn-primary">Download PlumbPro Free →</a>
+  <a href="https://apps.apple.com/us/app/plumbpro-plumbing-exam-prep/id6759473027">
+    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" class="app-store-badge">
+  </a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">&copy; 2026 PlumbPro Prep. All rights reserved.</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="mailto:support@plumbproprep.com">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
