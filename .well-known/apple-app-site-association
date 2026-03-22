@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "C59DKX8T9D.com.plumbpro.exam",
+        "paths": ["/auth.html", "/reset-password.html", "/confirmed.html"]
+      }
+    ]
+  }
+}
